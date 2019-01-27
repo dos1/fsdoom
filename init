@@ -1,0 +1,13 @@
+#!/bin/sh
+touch .fsdoom-data .fsdoom-mapping
+truncate .fsdoom-data --size 0
+truncate .fsdoom-mapping --size 0
+
+USER=`whoami`
+
+find /home -name ".*" -prune -o -type f -print | while read p; do
+  FILE=`ls -i1 "$p" | awk '{for(i=2;i<=NF;i++) printf FS$i;} END {print NL}'`
+  INODE=`ls -i1 "$p" | awk '{print $1}'`
+  echo $USER $INODE `basename "$FILE" | sed 's/ /_/g'` 1 >> .fsdoom-data
+  echo $INODE $FILE >> .fsdoom-mapping
+done

@@ -1,0 +1,6 @@
+#!/bin/sh
+set -e
+
+rm `grep '^'"$1" .fsdoom-mapping | awk '{for(i=2;i<=NF;i++){printf FS$i} } END {printf NL}'`
+grep -v " $1 " .fsdoom-data > .fsdoom-data2
+mv .fsdoom-data2 .fsdoom-data
