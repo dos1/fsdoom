@@ -1,4 +1,5 @@
 #!/bin/sh
+cp data/* psdoom-ng/data/
 cd psdoom-ng/data
 
 export PSDOOMPSCMD=$FSDOOMDIR/ps
