@@ -1,2 +1,2 @@
 #!/bin/sh
-cat .fsdoom-data
+cat $FSDOOMDIR/.fsdoom-data
