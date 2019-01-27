@@ -1,4 +1,8 @@
 #!/bin/sh
+cd scripts
+./init
+cd ..
+
 cp data/* psdoom-ng/data/
 cd psdoom-ng/data
 
